@@ -6,7 +6,7 @@
 /*   By: tfranchi <tfranchi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 11:29:51 by tfranchi          #+#    #+#             */
-/*   Updated: 2023/01/02 14:42:05 by tfranchi         ###   ########.fr       */
+/*   Updated: 2023/01/03 13:48:21 by tfranchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,4 +25,5 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 			i++;
 		}
 	}
+	return ;
 }

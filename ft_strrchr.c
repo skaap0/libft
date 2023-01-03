@@ -6,7 +6,7 @@
 /*   By: tfranchi <tfranchi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/22 11:09:46 by tfranchi          #+#    #+#             */
-/*   Updated: 2023/01/02 14:43:23 by tfranchi         ###   ########.fr       */
+/*   Updated: 2023/01/03 13:03:59 by tfranchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,14 @@
 char	*ft_strrchr(const char *s, int c)
 {
 	int		i;
-	char	*lo;
+	char	*last_occurence;
 
 	i = ft_strlen(s);
-	lo = NULL;
+	last_occurence = NULL;
 	if (c == '\0')
 	{
-		lo = ((char *)&s[i]);
-		return (lo);
+		last_occurence = ((char *)&s[i]);
+		return (last_occurence);
 	}
 	if (s[1] == '\0')
 		return (NULL);
@@ -30,9 +30,9 @@ char	*ft_strrchr(const char *s, int c)
 	{
 		i--;
 		if ((char)c == s[i])
-			lo = ((char *)&s[i]);
+			last_occurence = ((char *)&s[i]);
 	}
 	if ((char)c == s[i])
-		lo = ((char *)&s[i]);
-	return (lo);
+		last_occurence = ((char *)&s[i]);
+	return (last_occurence);
 }

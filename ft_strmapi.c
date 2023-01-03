@@ -6,7 +6,7 @@
 /*   By: tfranchi <tfranchi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 16:35:37 by tfranchi          #+#    #+#             */
-/*   Updated: 2023/01/02 14:43:05 by tfranchi         ###   ########.fr       */
+/*   Updated: 2023/01/03 13:08:00 by tfranchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 
 	if (!s)
 		return (0);
-	ret = (char *)malloc(sizeof(char) * (ft_strlen(s) + 1));
+	ret = (char *)ft_calloc((ft_strlen(s) + 1), sizeof(char));
 	if (ret != NULL)
 	{
 		i = 0;

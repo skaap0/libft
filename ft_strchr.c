@@ -6,7 +6,7 @@
 /*   By: tfranchi <tfranchi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 13:06:42 by tfranchi          #+#    #+#             */
-/*   Updated: 2023/01/02 14:41:17 by tfranchi         ###   ########.fr       */
+/*   Updated: 2023/01/03 13:02:57 by tfranchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,25 +15,25 @@
 char	*ft_strchr(const char *s, int c)
 {
 	unsigned int	i;
-	char			*fo;
+	char			*first_occurence;
 
 	i = 0;
-	fo = NULL;
+	first_occurence = NULL;
 	if (c == 0)
 		return ((char *)&s[ft_strlen(s)]);
 	while (s[i] != '\0')
 	{
 		if ((char)c == s[i])
 		{
-			fo = ((char *) s + i);
-			return (fo);
+			first_occurence = ((char *) s + i);
+			return (first_occurence);
 		}
 		i++;
 	}
 	if ((char)c == s[i])
 	{
-		fo = ((char *) s + i);
-		return (fo);
+		first_occurence = ((char *) s + i);
+		return (first_occurence);
 	}
-	return (fo);
+	return (first_occurence);
 }

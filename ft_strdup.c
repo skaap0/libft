@@ -6,7 +6,7 @@
 /*   By: tfranchi <tfranchi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/01 17:34:07 by tfranchi          #+#    #+#             */
-/*   Updated: 2023/01/03 13:53:22 by tfranchi         ###   ########.fr       */
+/*   Updated: 2023/01/03 17:02:50 by tfranchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ char	*ft_strdup(const char *src)
 	i = 0;
 	while (src[i])
 	{
-		ft_memmove(dst, src);
+		ft_memmove(dst, src, len);
 		i++;
 	}
 	dst[i] = 0;

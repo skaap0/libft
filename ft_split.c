@@ -6,7 +6,7 @@
 /*   By: tfranchi <tfranchi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 10:41:18 by tfranchi          #+#    #+#             */
-/*   Updated: 2023/01/03 11:55:52 by tfranchi         ###   ########.fr       */
+/*   Updated: 2023/01/05 11:30:02 by tfranchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,34 +45,21 @@ static char	**ft_free_array(char **arr, int n)
 	return (NULL);
 }
 
-static int	ft_next_start(const char *s, char c, int last_index)
+static int	ft_is_char(const char*s, char c)
 {
-	int	i;
-
-	i = last_index;
-	while (s[i] != '\0')
-	{
-		if (s[0] != c && i == 0)
-			return (0);
-		if (s[i] == c && (s[i + 1] != c || s[i + 1] == '\0'))
-			return (i + 1);
-		i++;
-	}
-	return (-1);
+	if (*s == c)
+		return (1);
+	return (0);
 }
 
-static int	ft_next_stop(const char *s, char c, int last_index)
+static int	ft_next_char(char const *s, char c)
 {
-	int	i;
+	int		i;
 
-	i = last_index;
-	while (s[i] != '\0')
-	{
-		if (s[i] != c && (s[i + 1] == c || s[i + 1] == '\0'))
-			return (i);
+	i = 0;
+	while (s[i] && !ft_is_char(s + i, c))
 		i++;
-	}
-	return (-1);
+	return (i);
 }
 
 char	**ft_split(const char *s, char c)
@@ -80,25 +67,24 @@ char	**ft_split(const char *s, char c)
 	int		nbs;
 	char	**array;
 	int		i;
-	int		index;
 	int		stop;
 
 	if (!s)
 		return (NULL);
 	nbs = ft_nb_str(s, c);
 	array = (char **)ft_calloc(((nbs) + 1), sizeof(char *));
-	index = ft_next_start(s, c, 0);
-	i = 0;
+	i = -1;
 	if (!array)
 		return (NULL);
-	while (i < (nbs))
+	while (++i < (nbs))
 	{
-		stop = ft_next_stop(s, c, index);
-		array[i] = ft_substr(s, index, ((stop - index) + 1));
-		index = ft_next_start(s, c, stop);
+		while (*s && ft_is_char(s, c))
+			s++;
+		stop = ft_next_char(s, c);
+		array[i] = ft_substr(s, 0, stop);
 		if (!array[i])
 			return (ft_free_array(array, i));
-		i++;
+		s += stop;
 	}
 	array[i] = NULL;
 	return (array);

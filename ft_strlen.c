@@ -6,7 +6,7 @@
 /*   By: tfranchi <tfranchi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/12 10:34:32 by tfranchi          #+#    #+#             */
-/*   Updated: 2023/01/02 14:42:42 by tfranchi         ###   ########.fr       */
+/*   Updated: 2023/01/05 11:29:03 by tfranchi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ size_t	ft_strlen(const char *d)
 	size_t	len;
 
 	len = 0;
+	if (!d)
+		return (0);
 	while (d[len] != '\0')
 		len++;
 	return (len);
